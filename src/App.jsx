@@ -35,6 +35,7 @@ function App() {
   // 현재 위치 가져오기
   const getCurrentLocation = async () => {
     return new Promise((resolve, reject) => {
+
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude: lat, longitude: lon } = position.coords
@@ -161,7 +162,7 @@ function App() {
                       {weatherData.name}
                     </Card.Title>
                     <Card.Text className="temperature">
-                      {Math.round(weatherData.main.temp)}°C
+                      {Math.round(weatherData.main.temp)}°C / {Math.round((weatherData.main.temp * 9/5) + 32)}°F
                     </Card.Text>
                     <Card.Text className="weather-description">
                       {weatherData.weather[0].description}
